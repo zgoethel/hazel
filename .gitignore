@@ -1,0 +1,8 @@
+#
+# Hazel Kernel primary ignore file
+#
+
+# Platform- and system-specific build output files
+/build/**
+/iso/**
+/dist/**
