@@ -49,10 +49,14 @@ void print_special(char c)
     switch (c)
     {
     case '\n':
+    case '\f':
         if (cursor < VIDEO_WIDTH * (VIDEO_HEIGHT - 1))
             cursor += VIDEO_WIDTH;
         else
             roll_up();
+        
+        if (c == '\f')
+            break;
     case '\r':
         cursor -= cursor % VIDEO_WIDTH;
         break;
@@ -66,13 +70,5 @@ void print_special(char c)
     case '\b':
         if (cursor > 0)
             cursor--;
-        break;
-        
-    case '\f':
-        if (cursor < VIDEO_WIDTH * (VIDEO_HEIGHT - 1))
-            cursor += VIDEO_WIDTH;
-        else
-            roll_up();
-        break;
     }
 }
